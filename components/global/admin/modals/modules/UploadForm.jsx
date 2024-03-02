@@ -2,11 +2,12 @@ import { Form, Formik } from "formik";
 import { useUploadProduct } from "modules/admin/hooks";
 import { CATEGORIES_OPTIONS } from "../models/categories";
 import InputField from "../../form/inputs/InputField";
-import ButtonUpload from "../../form/buttons/ButtonUpload";
+import Button from "../../form/buttons/Button";
 import InputSelect from "../../form/inputs/InputSelect";
 import DragAndDrop from "../../dnd/DragAndDrop";
 import { useGetGlobalState } from "hooks";
 import UploadProductSchema from "../../helpers/validationUploadProduct";
+import { CgSpinner } from "react-icons/cg";
 
 export default function UploadForm({ handleNotViewModal }) {
   const { onHandleSubmit, onChangeCategories, onChangeImages, images } =
@@ -65,7 +66,13 @@ export default function UploadForm({ handleNotViewModal }) {
           }}
         />
         <DragAndDrop handleChangeImages={onChangeImages} image={images} />
-        <ButtonUpload loading={loading} />
+        <Button>
+          {loading ? (
+            <CgSpinner size={28} className="animate-spin" />
+          ) : (
+            "Create product"
+          )}
+        </Button>
       </Form>
     </Formik>
   );

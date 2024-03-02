@@ -17,8 +17,14 @@ const post = async (url, data) => {
   });
 };
 
+const put = async (url, data) => {
+  return await instance.put(url, data, {
+    withCredentials: true,
+  });
+};
+
 const postSSR = async (url, data, config) => {
   return await instance.post(url, data, config);
 };
 
-export { get, post, postSSR };
+export { get, post, put, postSSR };

@@ -1,5 +1,10 @@
 import { Field, useField } from "formik";
 
+/**
+ * Input field component to admin modules
+ * @param {HTMLInputElement &&  React.ComponentType<FieldProps>} params
+ * @returns
+ */
 export default function InputField({ label, ...props }) {
   const [field, meta] = useField(props);
 

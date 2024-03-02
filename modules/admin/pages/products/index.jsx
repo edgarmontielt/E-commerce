@@ -15,9 +15,9 @@ export default function ProductsAdminModule({ handleViewModal, user }) {
     const letter = e.target.value;
     const data = products.filter((item) => {
       const itemName = item.name.toUpperCase();
-      const campo = itemName;
+      const field = itemName;
       const textData = letter.toUpperCase();
-      return campo.indexOf(textData) > -1;
+      return field.indexOf(textData) > -1;
     });
 
     setState(data);

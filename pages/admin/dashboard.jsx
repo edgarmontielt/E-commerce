@@ -16,10 +16,6 @@ export default function Dashboard({ user }) {
 // TODO: Valitade role in admin pages
 export async function getServerSideProps({ req }) {
   const cookies = req.headers.cookie;
-  console.log(
-    "🚀 ~ file: dashboard.jsx:18 ~ getServerSideProps ~ cookies:",
-    cookies
-  );
 
   if (!cookies) {
     return {
