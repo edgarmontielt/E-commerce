@@ -15,6 +15,7 @@ const ImageSlider = ({ images }) => {
           alt="product"
           fill
           priority
+          loading="eager"
         />
       </figure>
       <div className="grid grid-cols-6 gap-8 h-auto w-full">
@@ -26,7 +27,7 @@ const ImageSlider = ({ images }) => {
             }`}
             onClick={() => handleImageIndex(index)}
           >
-            <Image src={img} fill alt="Image product" />
+            <Image src={img} fill priority alt="Image product" />
           </figure>
         ))}
       </div>
