@@ -2,26 +2,19 @@ import CardReview from "./card";
 import FormReview from "./form";
 import { ReviewsContainer, ReviewsParent, Title } from "./styled";
 import moment from "moment";
-import ReviewSkeleton from "../../../../components/utils/loaders/skeleton/Review";
 
-const Reviews = ({ reviews, loading }) => {
+const Reviews = ({ reviews }) => {
+  if (!reviews) return null;
+
   return (
     <ReviewsParent>
       <Title>Reviews ({reviews?.length || 0})</Title>
       <FormReview />
       <ReviewsContainer>
-        {loading ? (
-          <>
-            <ReviewSkeleton />
-            <ReviewSkeleton />
-            <ReviewSkeleton />
-          </>
-        ) : (
-          reviews?.map((review, index) => {
-            const date = moment(review.date).fromNow();
-            return <CardReview key={index} review={review} date={date} />;
-          })
-        )}
+        {reviews?.map((review, index) => {
+          const date = moment(review.date).fromNow();
+          return <CardReview key={index} review={review} date={date} />;
+        })}
       </ReviewsContainer>
     </ReviewsParent>
   );

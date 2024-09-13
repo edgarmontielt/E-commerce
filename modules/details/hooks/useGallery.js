@@ -1,20 +1,25 @@
 import { useState } from "react";
 
 export function useGallery(images) {
-  const [img, setImage] = useState(0);
+  const [curentIndex, setCurrentIndex] = useState(0);
 
   const prevImage = () => {
-    if (img === 0) {
+    if (curentIndex === 0) {
       return;
     }
-    setImage(img - 1);
-  };
-  const nextImage = () => {
-    if (img === images.length - 1) {
-      return;
-    }
-    setImage(img + 1);
+    setCurrentIndex(curentIndex - 1);
   };
 
-  return { img, prevImage, nextImage };
+  const nextImage = () => {
+    if (curentIndex === images.length - 1) {
+      return;
+    }
+    setCurrentIndex(curentIndex + 1);
+  };
+
+  const handleImageIndex = (imageIdx) => {
+    setCurrentIndex(imageIdx);
+  };
+
+  return { curentIndex, prevImage, nextImage, handleImageIndex };
 }

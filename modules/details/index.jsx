@@ -4,13 +4,13 @@ import { ProductDetails } from "./styled";
 import PaymentsMethods from "./components/methods";
 import Reviews from "./components/reviews";
 
-const DeatilsModule = ({ product, loading }) => {
+const DeatilsModule = ({ product }) => {
   return (
     <ProductDetails>
       <ScrollToTop />
-      <CardProduct product={product} loading={loading} />
+      <CardProduct product={product} />
       <PaymentsMethods />
-      <Reviews reviews={product?.reviews} loading={loading} />
+      <Reviews reviews={product?.reviews} />
     </ProductDetails>
   );
 };

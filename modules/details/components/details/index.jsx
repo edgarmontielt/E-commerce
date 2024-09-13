@@ -1,16 +1,11 @@
 import ActionsButtons from "./actions";
 import ImageSlider from "./images";
-import { Card, CardContainer, Details, Price } from "./styled";
+import { Card, Details, Price } from "./styled";
 import TitleProduct from "./tittle";
-import SpinnerLoader from "/components/utils/loaders/spinner";
 
-function CardProduct({ product, loading }) {
-  if (loading) {
-    return <SpinnerLoader />;
-  }
-
+function CardProduct({ product }) {
   return (
-    <CardContainer>
+    <div className="bg-white flex flex-col tabletL:grid tabletL:grid-cols-2 gap-10 p-4">
       <ImageSlider images={product?.imgURL} />
       <Card>
         <TitleProduct productName={product?.name} />
@@ -26,7 +21,7 @@ function CardProduct({ product, loading }) {
         </Details>
         <ActionsButtons product={product} />
       </Card>
-    </CardContainer>
+    </div>
   );
 }
 

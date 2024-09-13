@@ -2,28 +2,14 @@ import styled from "styled-components";
 import BREAKPOINTS_DEVICES from "theme/global/breakpoints";
 
 export const CardContainer = styled.div`
-  width: 100%;
-  min-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0px 5px 20px #0000003f;
-  div {
-    img {
-      width: auto;
-    }
-  }
 
   @media ${BREAKPOINTS_DEVICES.mobileL} {
-    div {
-      img {
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-      }
-    }
   }
 
   @media ${BREAKPOINTS_DEVICES.tablet} {
